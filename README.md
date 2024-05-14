@@ -38,30 +38,30 @@ EnvManager is a CLI tool written in Python that helps developers securely push t
 
 ### Generate RSA Key Pair
 
-    Generate a new RSA key pair for encryption and decryption:
-        ```
-            envmanager generate-keys
-        ```
+- Generate a new RSA key pair for encryption and decryption:
+    ```
+        envmanager generate-keys
+    ```
 
-    This command will create `private.pem` and `public.pem` files in the current directory.
+This command will create `private.pem` and `public.pem` files in the current directory.
 
 ### Encrypt a `.env` File
 
-    Encrypt a `.env` file using the public key:
-        ```
-            envmanager encrypt .env --key public.pem
-        ```
+- Encrypt a `.env` file using the public key:
+    ```
+        envmanager encrypt .env --key public.pem
+    ```
 
-    This will create an encrypted file named `.env.enc`.
+This will create an encrypted file named `.env.enc`.
 
 ### Decrypt a `.env` File
 
-    Decrypt a `.env.enc` file using the private key:
-        ```
-            envmanager decrypt .env.enc --key private.pem
-        ```
+- Decrypt a `.env.enc` file using the private key:
+    ```
+        envmanager decrypt .env.enc --key private.pem
+    ```
 
-    This will create a decrypted file named `.env`.
+This will create a decrypted file named `.env`.
 
 ### Encrypt and Push to GitHub
 
