@@ -47,3 +47,6 @@ echo "Creating a symlink to cli_tool.py in $TARGET_DIR..."
 ln -s "$SCRIPT_PATH" "$TARGET_DIR/$SCRIPT_NAME"
 
 echo "Setup complete. You can now use 'envmanager' command."
+
+# Display help message
+echo "For usage information, run 'envmanager --help'."

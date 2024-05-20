@@ -1,6 +1,7 @@
 from Crypto.Cipher import AES, PKCS1_OAEP
 from Crypto.PublicKey import RSA
 from Crypto.Random import get_random_bytes
+import os
 
 def encrypt_file(file_path, public_key_path):
     with open(public_key_path, "rb") as pub_file:
@@ -23,6 +24,14 @@ def encrypt_file(file_path, public_key_path):
     ciphertext, tag = cipher_aes.encrypt_and_digest(file_data)
     
     # Write the encrypted AES key and the encrypted file data to an output file
-    with open(file_path + ".enc", "wb") as enc_file:
+    output_file_path = file_path + ".enc"
+    with open(output_file_path, "wb") as enc_file:
         for x in (cipher_aes.nonce, tag, encrypted_aes_key, ciphertext):
             enc_file.write(x)
+    
+    # Append the .env file to .gitignore
+    gitignore_path = os.path.join(os.path.dirname(file_path), ".gitignore")
+    with open(gitignore_path, "a") as gitignore_file:
+        gitignore_file.write("\n.env\n")
+    
+    # print(".env file appended to .gitignore.")
